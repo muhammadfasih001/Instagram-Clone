@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/Screen/home/instaHome_screen.dart';
+import 'package:instagram_clone/Screen/home/bottom_navigation.dart';
 
 class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
@@ -28,7 +28,7 @@ class LoginController extends GetxController {
         Get.snackbar("Log In Successfully",
             "User with email $emailCheck log in Successfully");
         isLoading.value = false;
-        Get.offAll(() => InstaHomeScreen());
+        Get.offAll(() => BottomNavigationScreen());
         clearControllers();
       } on FirebaseException catch (error) {
         Get.snackbar("Error", error.message ?? "An error occurred");

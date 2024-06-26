@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/Screen/home/instaHome_screen.dart';
+import 'package:instagram_clone/Screen/home/bottom_navigation.dart';
 import 'package:instagram_clone/Screen/login/login_screen.dart';
 
 class AuthWrapper extends StatelessWidget {
@@ -12,10 +12,10 @@ class AuthWrapper extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
         if (snapshot.hasData) {
-          return InstaHomeScreen();
+          return BottomNavigationScreen();
         } else {
           return LoginScreen();
         }
